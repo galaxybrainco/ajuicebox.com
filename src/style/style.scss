@@ -1,0 +1,154 @@
+@import './reset.scss';
+@import './colors.scss';
+@import './animation.scss';
+
+%little-text {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+body {
+    margin: 16px auto 48px;
+    max-width: 576px;
+    color: $black;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    outline: 0;
+}
+
+main {
+    margin: 24px;
+
+    a {
+        border-bottom: 2px solid $coal;
+
+        &:hover,
+        &:focus {
+            animation: rainbow-flash-border-color $rainbow-flash-duration
+                infinite;
+        }
+
+        &:active {
+            border-color: $bright-red;
+        }
+
+        &visited {
+            border-color: $plum;
+        }
+    }
+}
+
+.site-logo {
+    margin: 0 auto;
+    width: 96px;
+    height: 96px;
+    background-color: #fff;
+    border-radius: 100%;
+    display: block;
+    position: relative;
+
+    &:after {
+        @extend %little-text;
+        content: '(Adult Juice Box)';
+        color: #999;
+
+        position: absolute;
+        bottom: -10px;
+        left: -10px;
+        width: 150px;
+
+        transition: opacity 0.3s ease;
+        opacity: 0;
+    }
+
+    &:hover:after {
+        opacity: 1;
+    }
+
+    &-main {
+        display: block;
+        border-radius: 100%;
+    }
+}
+
+.cta-container {
+    text-align: center;
+    margin: 24px 0;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    .button {
+        margin: 8px;
+    }
+}
+
+.news-container {
+    position: relative;
+    margin: 48px -16px 16px;
+    padding: 0 16px 16px;
+
+    box-shadow: 0 0 1px rgba(0, 0, 6, 0.2), 0 2px 34px rgba(0, 0, 6, 0.15);
+    background-image: linear-gradient(rgba($blue, 0.1) .07em, transparent .07em);
+    background-size: 100% 25.5px;
+    background-position: 0 26px;
+
+    transform: rotate(-0.5deg);
+
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: $white;
+        height: 16px;
+    }
+
+    &-header {
+        @extend %little-text;
+        position: relative;
+        margin: 0 -16px;
+        padding: 8px 16px;
+        border-bottom: 1px solid $bright-red;
+        background-color: $white;
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background-color: $white;
+        }
+    }
+}
+
+.button {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 2px solid;
+    border-radius: 4px;
+
+    background-color: $white;
+    border-color: $coal;
+
+    ion-icon {
+        color: $coal;
+        font-size: 20px;
+        vertical-align: middle;
+        position: relative;
+        top: -1.5px;
+    }
+
+    &:hover,
+    &:visited {
+        animation: rainbow-flash-border-color $rainbow-flash-duration infinite;
+    }
+}
